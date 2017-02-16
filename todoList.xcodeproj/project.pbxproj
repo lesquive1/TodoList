@@ -13,6 +13,7 @@
 		A0198A9A1E4260750029F087 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0198A991E4260750029F087 /* Assets.xcassets */; };
 		A0198A9D1E4260750029F087 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0198A9B1E4260750029F087 /* LaunchScreen.storyboard */; };
 		A0198AA81E4260750029F087 /* todoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0198AA71E4260750029F087 /* todoListTests.swift */; };
+		A026EC6E1E564B6100DAA5A5 /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = A026EC6D1E564B6100DAA5A5 /* Tasks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		A0198AA31E4260750029F087 /* todoListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = todoListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0198AA71E4260750029F087 /* todoListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todoListTests.swift; sourceTree = "<group>"; };
 		A0198AA91E4260750029F087 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A026EC6D1E564B6100DAA5A5 /* Tasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tasks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		A0198A861E4260740029F087 = {
 			isa = PBXGroup;
 			children = (
+				A026EC6C1E5649B200DAA5A5 /* Models */,
 				A0198A911E4260750029F087 /* todoList */,
 				A0198AA61E4260750029F087 /* todoListTests */,
 				A0198A901E4260750029F087 /* Products */,
@@ -94,6 +97,14 @@
 				A0198AA91E4260750029F087 /* Info.plist */,
 			);
 			path = todoListTests;
+			sourceTree = "<group>";
+		};
+		A026EC6C1E5649B200DAA5A5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A026EC6D1E564B6100DAA5A5 /* Tasks.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0198A951E4260750029F087 /* ViewController.swift in Sources */,
+				A026EC6E1E564B6100DAA5A5 /* Tasks.swift in Sources */,
 				A0198A931E4260750029F087 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +424,7 @@
 				A0198AAE1E4260750029F087 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A0198AAF1E4260750029F087 /* Build configuration list for PBXNativeTarget "todoListTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +433,7 @@
 				A0198AB11E4260750029F087 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
