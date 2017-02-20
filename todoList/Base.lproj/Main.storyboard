@@ -13,13 +13,13 @@
         <!--Tasks-->
         <scene sceneID="2aN-Bq-i04">
             <objects>
-                <tableViewController id="GRm-Hd-7gL" sceneMemberID="viewController">
+                <tableViewController id="GRm-Hd-7gL" customClass="TasksTableViewController" customModule="todoList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="uCh-5U-GXl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="todoCell" id="zXm-YN-VJj">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="todoCell" id="zXm-YN-VJj" customClass="TasksTableViewCell" customModule="todoList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zXm-YN-VJj" id="enu-FK-XFG">
@@ -56,6 +56,9 @@
                                         <constraint firstItem="Lc7-Fm-Mnb" firstAttribute="leading" secondItem="SJX-aZ-FMl" secondAttribute="trailing" constant="11" id="zJ4-mI-6gL"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="taskLabelName" destination="cM5-i0-YcL" id="b5J-a2-9Bt"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
