@@ -42,7 +42,8 @@
                                             </constraints>
                                             <state key="normal" title="Edit"/>
                                             <connections>
-                                                <segue destination="BYZ-38-t0r" kind="show" identifier="editDetails" id="ik3-jH-Bv7"/>
+                                                <action selector="editButtonTouched:" destination="GRm-Hd-7gL" eventType="touchUpInside" id="jYS-Vd-GmJ"/>
+                                                <segue destination="BYZ-38-t0r" kind="show" identifier="editTask" id="KDK-4j-Xsq"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -57,6 +58,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="editButton2" destination="Lc7-Fm-Mnb" id="Ufk-3F-YHh"/>
                                     <outlet property="taskLabelName" destination="cM5-i0-YcL" id="b5J-a2-9Bt"/>
                                 </connections>
                             </tableViewCell>
@@ -66,29 +68,54 @@
                             <outlet property="delegate" destination="GRm-Hd-7gL" id="SQj-ZD-RbH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Tasks" id="gdj-Nm-vcF"/>
+                    <navigationItem key="navigationItem" title="Tasks" id="gdj-Nm-vcF">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="G4w-mA-9CS">
+                            <connections>
+                                <segue destination="Td6-TO-IiR" kind="presentation" identifier="addTask" id="5x5-vA-F9d"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oNM-2f-Yad" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="127.2" y="0.44977511244377816"/>
         </scene>
-        <!--View Controller-->
+        <!--Details-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="todoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TaskViewController" customModule="todoList" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="TasksTableViewCell" customModule="todoList" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2EL-er-bTf">
+                                <rect key="frame" x="16" y="72" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Details" id="GWC-MH-hNm">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="fRj-1q-8OX">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="cZu-E0-pe6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="taskNameText" destination="2EL-er-bTf" id="xZ2-lP-4hW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="908" y="0.44977511244377816"/>
+            <point key="canvasLocation" x="1847.2" y="0.44977511244377816"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iGs-s1-Uh5">
@@ -108,5 +135,26 @@
             </objects>
             <point key="canvasLocation" x="-812" y="0.44977511244377816"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dvX-Jy-hIJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Td6-TO-IiR" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RYi-q7-zrD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="sk9-dE-mUA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3O9-Xo-1ca" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="972" y="-320"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="KDK-4j-Xsq"/>
+    </inferredMetricsTieBreakers>
 </document>

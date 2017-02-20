@@ -3,16 +3,19 @@
 //  todoList
 //
 //  Created by Luis Esquivel on 2017-02-16.
+//  ID 300869199
 //  Copyright © 2017 luis. All rights reserved.
 //
 
 import UIKit
+import os.log
 
 class TasksTableViewController: UITableViewController {
     
     // MARK: Properties
     
     var tasks = [Tasks]()
+    var tagIndex: Int = 0
     
     func loadTasks() {
         
@@ -64,6 +67,9 @@ class TasksTableViewController: UITableViewController {
         let task = tasks[indexPath.row]
         
         cell.taskLabelName.text = task.taskName
+        cell.editButton2.tag = indexPath.row
+        //print(indexPath.row)
+        //cell.editButton.tag = indexPath.row
         
 
 
@@ -71,6 +77,7 @@ class TasksTableViewController: UITableViewController {
 
         return cell
     }
+    
     
 
     /*
@@ -108,14 +115,46 @@ class TasksTableViewController: UITableViewController {
     }
     */
 
-    /*
+    @IBAction func editButtonTouched(_ sender: UIButton) {
+        tagIndex = sender.tag
+    }
+
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        super.prepare(for: segue, sender: sender)
+        
+        switch(segue.identifier ?? "") {
+            
+        case "addTask":
+            os_log("Adding a new task.", log: OSLog.default, type: .debug)
+            
+        case "editTask":
+            guard let taskDetailViewController = segue.destination as? TaskViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            /*
+            guard let selectedTaskCell = sender as? TasksTableViewCell else {
+                fatalError("Unexpected sender: \(sender)")
+            }
+            guard let indexPath = tableView.indexPath(for: selectedTaskCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            */
+
+            
+            let selectedTask = tasks[tagIndex]
+            taskDetailViewController.task = selectedTask
+            
+        default:
+            fatalError("Unexpected Segue Identifier; \(segue.identifier)")
+        }
+        
+        
     }
-    */
+    
 
 }
