@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import os.log
 
 class TaskViewController: UIViewController {
     
@@ -15,21 +16,30 @@ class TaskViewController: UIViewController {
     //MARK: Properties
     
     @IBOutlet weak var taskNameText: UITextView!
+    @IBOutlet weak var taskDetailText: UITextView!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     var task: Tasks?
+    var editFlag: Bool?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        // Set up views if editing an existing Task.
+        if let task = task {
+            
+            taskNameText.text = task.taskName
+            taskDetailText.text = task.taskDetail
 
-        taskNameText.text = task?.taskName
+        }
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
     
     // MARK: - Navigation
      
@@ -48,12 +58,25 @@ class TaskViewController: UIViewController {
         }
     }
      
-    /*
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+
+        super.prepare(for: segue, sender: sender)
+        
+        // Configure the destination view controller only when the save button is pressed.
+        guard let button = sender as? UIBarButtonItem, button === saveButton else {
+            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+            return
+        }
+        
+        let taskName = taskNameText.text
+        let taskDetail = taskDetailText.text
+        let taskStatus = false
+        
+        // Set the task to be passed to TasksTableViewController after the unwind segue.
+        task = Tasks(taskName: taskName!, taskDetail: taskDetail!, taskStatus: taskStatus)
+        
     }
-    */
+
 
 }

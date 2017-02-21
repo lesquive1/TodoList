@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import Firebase
 
 class Tasks {
     // MARK: Properties
@@ -16,17 +17,22 @@ class Tasks {
     var taskDetail: String
     var taskStatus: Bool
     
+    let key: String
+    let ref: FIRDatabaseReference?
+    
     
     // MARK: Initialization
     
     init?(taskName: String,
           taskDetail: String,
-          taskStatus: Bool) {
+          taskStatus: Bool, key: String = "") {
         
         // Initialize stored properties.
+        self.key = key
         self.taskName = taskName
         self.taskDetail = taskDetail
         self.taskStatus = taskStatus
+        self.ref = nil
 
         // Initialization should fail if there is no task name.
         if taskName.isEmpty {
@@ -36,4 +42,22 @@ class Tasks {
         }
         
     }
+    
+    init(snapshot: FIRDataSnapshot) {
+        key = snapshot.key
+        let snapshotValue = snapshot.value as! [String: AnyObject]
+        taskName = snapshotValue["taskName"] as! String
+        taskDetail = snapshotValue["taskDetail"] as! String
+        taskStatus = snapshotValue["taskStatus"] as! Bool
+        ref = snapshot.ref
+    }
+    
+    func toAnyObject() -> Any {
+        return [
+            "taskName": taskName,
+            "taskDetail": taskDetail,
+            "taskStatus": taskStatus
+        ]
+    }
+    
 }

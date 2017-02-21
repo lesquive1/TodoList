@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zXm-YN-VJj" id="enu-FK-XFG">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To do ..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cM5-i0-YcL">
@@ -92,15 +92,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2EL-er-bTf">
-                                <rect key="frame" x="16" y="72" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q30-4D-dtd">
+                                <rect key="frame" x="16" y="72" width="83" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7M-Bb-VFp">
+                                <rect key="frame" x="16" y="140" width="46" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gZB-IO-jxY">
+                                <rect key="frame" x="16" y="169" width="343" height="478"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2EL-er-bTf">
+                                <rect key="frame" x="16" y="101" width="343" height="31"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="vRj-XD-7a5"/>
+                                </constraints>
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="q30-4D-dtd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="DEo-Gq-jqy"/>
+                            <constraint firstItem="2EL-er-bTf" firstAttribute="leading" secondItem="a7M-Bb-VFp" secondAttribute="leading" id="GZe-aW-hnr"/>
+                            <constraint firstItem="2EL-er-bTf" firstAttribute="top" secondItem="q30-4D-dtd" secondAttribute="bottom" constant="8" symbolic="YES" id="HFL-1N-6My"/>
+                            <constraint firstItem="a7M-Bb-VFp" firstAttribute="top" secondItem="2EL-er-bTf" secondAttribute="bottom" constant="8" symbolic="YES" id="Jfh-hX-WiX"/>
+                            <constraint firstItem="q30-4D-dtd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Nps-al-xLK"/>
+                            <constraint firstItem="a7M-Bb-VFp" firstAttribute="leading" secondItem="gZB-IO-jxY" secondAttribute="leading" id="VNe-1u-0SM"/>
+                            <constraint firstItem="q30-4D-dtd" firstAttribute="leading" secondItem="2EL-er-bTf" secondAttribute="leading" id="WgR-aw-wcx"/>
+                            <constraint firstItem="gZB-IO-jxY" firstAttribute="top" secondItem="a7M-Bb-VFp" secondAttribute="bottom" constant="8" symbolic="YES" id="eIP-ro-BB4"/>
+                            <constraint firstItem="2EL-er-bTf" firstAttribute="trailing" secondItem="gZB-IO-jxY" secondAttribute="trailing" id="fkx-QB-hme"/>
+                            <constraint firstAttribute="bottom" secondItem="gZB-IO-jxY" secondAttribute="bottom" constant="20" symbolic="YES" id="qct-xJ-d8D"/>
+                            <constraint firstItem="2EL-er-bTf" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="vNZ-oc-gxr"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Details" id="GWC-MH-hNm">
                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="fRj-1q-8OX">
@@ -108,12 +141,20 @@
                                 <action selector="cancel:" destination="BYZ-38-t0r" id="cZu-E0-pe6"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="PHC-b9-MJD">
+                            <connections>
+                                <segue destination="Abs-oM-Lg2" kind="unwind" unwindAction="unwindToMealListWithSender:" id="UHU-Xs-RrW"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="saveButton" destination="PHC-b9-MJD" id="wtW-kE-HFh"/>
+                        <outlet property="taskDetailText" destination="gZB-IO-jxY" id="SWf-rg-K4K"/>
                         <outlet property="taskNameText" destination="2EL-er-bTf" id="xZ2-lP-4hW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="Abs-oM-Lg2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1847.2" y="0.44977511244377816"/>
         </scene>
