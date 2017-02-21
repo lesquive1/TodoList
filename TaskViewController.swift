@@ -20,7 +20,6 @@ class TaskViewController: UIViewController {
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     var task: Tasks?
-    var editFlag: Bool?
 
     override func viewDidLoad() {
         super.viewDidLoad()

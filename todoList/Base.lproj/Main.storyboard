@@ -34,6 +34,10 @@
                                         </label>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SJX-aZ-FMl">
                                             <rect key="frame" x="261" y="7" width="51" height="31"/>
+                                            <connections>
+                                                <action selector="swithChanged:" destination="zXm-YN-VJj" eventType="valueChanged" id="1pm-Mi-Act"/>
+                                                <action selector="taskSwitchChanged2:" destination="GRm-Hd-7gL" eventType="valueChanged" id="1nf-c0-dWH"/>
+                                            </connections>
                                         </switch>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lc7-Fm-Mnb">
                                             <rect key="frame" x="321" y="7" width="46" height="30"/>
@@ -60,6 +64,7 @@
                                 <connections>
                                     <outlet property="editButton2" destination="Lc7-Fm-Mnb" id="Ufk-3F-YHh"/>
                                     <outlet property="taskLabelName" destination="cM5-i0-YcL" id="b5J-a2-9Bt"/>
+                                    <outlet property="taskSwitch2" destination="SJX-aZ-FMl" id="tUD-ze-rWt"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

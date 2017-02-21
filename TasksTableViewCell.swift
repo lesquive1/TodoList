@@ -16,6 +16,7 @@ class TasksTableViewCell: UITableViewCell {
     
     @IBOutlet weak var taskLabelName: UILabel!
     @IBOutlet weak var editButton2: UIButton!
+    @IBOutlet weak var taskSwitch2: UISwitch!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,4 +29,14 @@ class TasksTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func swithChanged(_ sender: UISwitch) {
+        
+        if (sender.isOn) {
+            taskLabelName.textColor = UIColor.black
+            taskLabelName.font = UIFont.boldSystemFont(ofSize: 20)
+        } else {
+            taskLabelName.textColor = UIColor.lightGray
+            taskLabelName.font = UIFont.italicSystemFont(ofSize: 15)
+        }
+    }
 }

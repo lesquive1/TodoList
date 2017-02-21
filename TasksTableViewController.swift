@@ -21,7 +21,7 @@ class TasksTableViewController: UITableViewController {
     
     
     let ref = FIRDatabase.database().reference()
-    
+    /*
     func loadTasks() {
         
         let task1 = Tasks(taskName: "task 1", taskDetail: "detail 1", taskStatus: false)!
@@ -31,7 +31,7 @@ class TasksTableViewController: UITableViewController {
         tasks += [task1, task2, task3]
         
     }
-
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -53,8 +53,8 @@ class TasksTableViewController: UITableViewController {
             // 3
             for item in snapshot.children {
                 // 4
-                let groceryItem = Tasks(snapshot: item as! FIRDataSnapshot)
-                newItems.append(groceryItem)
+                let task = Tasks(snapshot: item as! FIRDataSnapshot)
+                newItems.append(task)
             }
             
             // 5
@@ -96,6 +96,13 @@ class TasksTableViewController: UITableViewController {
         
         cell.taskLabelName.text = task.taskName
         cell.editButton2.tag = indexPath.row
+        
+        cell.taskSwitch2.tag = indexPath.row
+        if task.taskStatus {
+            
+            cell.taskSwitch2.isOn = false
+            cell.swithChanged(cell.taskSwitch2)
+        }
         //print(indexPath.row)
         //cell.editButton.tag = indexPath.row
         
@@ -184,6 +191,14 @@ class TasksTableViewController: UITableViewController {
         tagIndex = sender.tag
     }
 
+    @IBAction func taskSwitchChanged2(_ sender: UISwitch) {
+        let task = tasks[sender.tag]
+        if sender.isOn {
+            task.ref?.updateChildValues(["taskStatus" : false])
+        } else {
+            task.ref?.updateChildValues(["taskStatus" : true])
+        }
+    }
     
     // MARK: - Navigation
 
@@ -204,7 +219,6 @@ class TasksTableViewController: UITableViewController {
             
             let selectedTask = tasks[tagIndex]
             taskDetailViewController.task = selectedTask
-            taskDetailViewController.editFlag = true
             
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier)")
