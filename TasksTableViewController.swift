@@ -99,8 +99,9 @@ class TasksTableViewController: UITableViewController {
         
         cell.taskSwitch2.tag = indexPath.row
         if task.taskStatus {
-            
+            // if task is completed then tittle is disabled
             cell.taskSwitch2.isOn = false
+            //cell.editButton2.isEnabled = false
             cell.swithChanged(cell.taskSwitch2)
         }
         //print(indexPath.row)
@@ -191,6 +192,7 @@ class TasksTableViewController: UITableViewController {
         tagIndex = sender.tag
     }
 
+    // When switch position change the taks status is updated
     @IBAction func taskSwitchChanged2(_ sender: UISwitch) {
         let task = tasks[sender.tag]
         if sender.isOn {

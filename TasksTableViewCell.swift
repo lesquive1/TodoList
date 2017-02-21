@@ -34,9 +34,11 @@ class TasksTableViewCell: UITableViewCell {
         if (sender.isOn) {
             taskLabelName.textColor = UIColor.black
             taskLabelName.font = UIFont.boldSystemFont(ofSize: 20)
+            editButton2.isEnabled = true
         } else {
             taskLabelName.textColor = UIColor.lightGray
             taskLabelName.font = UIFont.italicSystemFont(ofSize: 15)
+            editButton2.isEnabled = false
         }
     }
 }
